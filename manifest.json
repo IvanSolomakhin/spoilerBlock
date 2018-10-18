@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "spoilerBlock",
+  "description": "Attempt to hide sport results from google search and youtube secondary search",
+  "version": "1.0",
+  "author": "isolomak",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.google.com/*",
+        "https://*.google.com.ua/*",
+        "https://*.youtube.com/*"
+      ],
+      "js": ["extension.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
