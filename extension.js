@@ -38,10 +38,8 @@ const findAndHide = () => {
 
 /*
  *  Check if `DOMContentLoaded` already fired
+ *  For some reason elements still visible
+ *  Try hide right away and on event?
  */
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", findAndHide);
-}
-else {
-    findAndHide();
-}
+document.addEventListener("DOMContentLoaded", findAndHide);
+findAndHide();
