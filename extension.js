@@ -12,13 +12,12 @@ const hide = (element) => {
     if (element instanceof HTMLCollection || Array.isArray(element)) {
         for (let el of element) {
             el.style.visibility = 'hidden';
+            // el.style.display = 'none';
         }
-        console.info(`Hiding spoiler in ${element}`);
         return ;
     }
 
     element.style.visibility = 'hidden';
-    console.info(`Hiding spoiler in ${element}`);
 };
 
 /** Observer callback */
@@ -37,7 +36,8 @@ const findAndHide = () => {
      */
     hide(document.getElementById('secondary'));
     const observer = new MutationObserver(observerCallback);
-    const observedNode = document.getElementById('primary');
+    // const observedNode = document.getElementById('primary');
+    const observedNode = document.body;
     if (observedNode) {
         observer.observe(observedNode, { attributes: true, childList: true, subtree: true, characterData: true, characterDataOldValue: true });
     }
